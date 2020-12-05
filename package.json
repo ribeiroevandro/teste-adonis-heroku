@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "build": "node ace build --production && cp Procfile ./build",
-    "start": "ENV_SILENT=true node build/server.js",
+    "start": "ENV_SILENT=true node server.js",
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "ENV_SILENT=true; && node ace migration:run --force"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^3.0.0",
